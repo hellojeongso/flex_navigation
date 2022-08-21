@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #eee;
+  font-size: 15px;
+  color: 000;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #30336b;
+  height: 60px;
+
+}
+
+nav {
+  width: 1280px; 
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+
+}
+
+.logo img {
+  filter: invert();
+}
+
+.gnb {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gnb li {
+
+}
+
+.gnb li a {
+  color: #fff;
+  margin: 10px;
+}
+
+.sns {
+
+}
+
+.sns a {
+  color: #fff;
+  margin: 5px;
+}
+
+.gnb li a:hover,
+.sns a:hover {
+  color: #000;
+}
+
+.trigger {
+  display:none;
+}
+
+@media screen and (max-width:768px) {
+  header {
+    /* px로 고정시키면 아래 컨텐츠들이 보이지 않기때문에 auto로 설정 */
+    height: auto; 
+  }
+
+  nav {
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .logo {
+    padding: 10px;
+  }
+  
+  .gnb {
+    flex-direction: column;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .gnb li a {
+    display: block;
+    padding: 8px;
+    margin: 0;
+  } 
+
+  .sns {
+    padding: 7px;
+    text-align: center;
+    background-color: #d1d8e0;
+  }
+
+  /* Trigger */
+  .trigger {
+    width: 25px;
+    height: 15px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .trigger span {
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    height: 1px;
+    /* span태그는 inline이기때문에 크기값을 가질 수 없다 
+    원래는 display: block를 하는게 맞는데, 
+    span태그가 trigger안에서 돌아갈거니까
+    position:absolute, width:100%를 줘서 나타나게 함 */
+    transition: 0.3s;
+    
+  }
+
+  .gnb, .sns {
+    display: none;
+  }
+
+  .trigger span:nth-child(1) {
+    top: 0;
+  }
+
+  .trigger span:nth-child(2) {
+    top: 50%;
+  }
+
+  .trigger span:nth-child(3) {
+    top: 100%;
+  }
+
+  .trigger {
+    display: block;
+  }
+
+  .trigger.active span:nth-child(1) {
+    top: 50%;
+    transform: rotate(45deg);
+  }
+
+  .trigger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .trigger.active span:nth-child(3) {
+    top: 50%;
+    transform: rotate(-45deg);
+  }
+}
